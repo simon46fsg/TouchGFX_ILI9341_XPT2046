@@ -24,7 +24,7 @@ Screen1ViewBase::Screen1ViewBase() :
     flexButton2.setBoxWithBorderPosition(0, 0, 81, 72);
     flexButton2.setBorderSize(5);
     flexButton2.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 102, 153), touchgfx::Color::getColorFromRGB(0, 153, 204), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
-    flexButton2.setPosition(0, 168, 81, 72);
+    flexButton2.setPosition(0, 171, 81, 72);
     flexButton2.setAction(flexButtonCallback);
 
     analogClock1.setXY(81, 0);

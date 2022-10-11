@@ -21,7 +21,7 @@
             "Width": 81,
             "Height": 77,
             "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
+              "Type": "TouchButtonTrigger"
             },
             "ButtonStyles": [
               {
@@ -53,11 +53,11 @@
           {
             "Type": "FlexButton",
             "Name": "flexButton2",
-            "Y": 168,
+            "Y": 171,
             "Width": 81,
             "Height": 72,
             "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
+              "Type": "TouchButtonTrigger"
             },
             "ButtonStyles": [
               {

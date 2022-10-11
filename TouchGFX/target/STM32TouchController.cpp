@@ -65,13 +65,13 @@ bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
 	XPT2046_Update(&intx, &inty);
 	if (XPT2046_IsReasonable(intx, inty)) {
 		ConvXPTtoILI(&intx, &inty);
-		if (intx != prevx || inty != prevy) {
+//		if (intx != prevx || inty != prevy) {
 			prevx = intx;
 			prevy = inty;
 			x = (int32_t)intx;
 			y = (int32_t)inty;
 			return true;
-		}
+//		}
 	}
     return false;
 }

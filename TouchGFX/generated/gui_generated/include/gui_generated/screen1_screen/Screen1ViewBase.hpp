@@ -28,8 +28,8 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box box1;
-    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  flexButton1;
-    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  flexButton2;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  flexButton1;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  flexButton2;
     touchgfx::AnalogClock analogClock1;
 
 private:
