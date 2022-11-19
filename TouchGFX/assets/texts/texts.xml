@@ -5,6 +5,35 @@
   </Languages>
   <Texts>
     <TextGroup Id="Group1" />
+    <TextGroup Id="Unsorted">
+      <Text Id="timer_" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">23</Translation>
+      </Text>
+      <Text Id="wild" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
+      <Text Id="__SingleUse_KV9H" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;s</Translation>
+      </Text>
+      <Text Id="wildcard_pressure" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">9</Translation>
+      </Text>
+      <Text Id="wildcard_temp" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">100</Translation>
+      </Text>
+      <Text Id="wildcard_timer" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">23</Translation>
+      </Text>
+      <Text Id="timer_unit" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt; sec</Translation>
+      </Text>
+      <Text Id="pressure_unit" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt; bar</Translation>
+      </Text>
+      <Text Id="temp_unit" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt; °C</Translation>
+      </Text>
+    </TextGroup>
   </Texts>
   <Typographies>
     <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" />

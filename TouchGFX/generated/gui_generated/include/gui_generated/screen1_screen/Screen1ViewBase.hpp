@@ -9,7 +9,8 @@
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
-#include <touchgfx/containers/clock/AnalogClock.hpp>
+#include <gui/containers/brewing_data.hpp>
+#include <gui/containers/wrench_symbol.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -27,10 +28,11 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Box box1;
-    touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  flexButton1;
+    touchgfx::Box background;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  flexButton1;
     touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  flexButton2;
-    touchgfx::AnalogClock analogClock1;
+    brewing_data brewing_data1;
+    wrench_symbol wrench_symbol1;
 
 private:
 
@@ -44,6 +46,11 @@ private:
      */
     void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint16_t CANVAS_BUFFER_SIZE = 4800;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 };
 
 #endif // SCREEN1VIEWBASE_HPP

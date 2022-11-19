@@ -1,1 +1,1 @@
-{"remap":"yes","language":"GB","language_index":0,"indices":[]}
+{"remap":"yes","language":"GB","language_index":0,"indices":[["24","T_WILDCARD_PRESSURE"],["17","T_WILDCARD_TEMP"],["21","T_WILDCARD_TIMER"],["6","T_TIMER_UNIT"],["0","T_PRESSURE_UNIT"],["12","T_TEMP_UNIT"]]}

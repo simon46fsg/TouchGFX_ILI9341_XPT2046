@@ -3,25 +3,22 @@
     "Screens": [
       {
         "Name": "Screen1",
+        "CanvasBufferSize": 4800,
         "Components": [
           {
             "Type": "Box",
-            "Name": "box1",
+            "Name": "background",
             "Width": 320,
-            "Height": 240,
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            }
+            "Height": 240
           },
           {
             "Type": "FlexButton",
             "Name": "flexButton1",
+            "Y": 163,
             "Width": 81,
             "Height": 77,
             "ButtonTrigger": {
-              "Type": "TouchButtonTrigger"
+              "Type": "ClickButtonTrigger"
             },
             "ButtonStyles": [
               {
@@ -53,7 +50,8 @@
           {
             "Type": "FlexButton",
             "Name": "flexButton2",
-            "Y": 171,
+            "X": 239,
+            "Y": 168,
             "Width": 81,
             "Height": 72,
             "ButtonTrigger": {
@@ -87,39 +85,22 @@
             ]
           },
           {
-            "Type": "AnalogClock",
-            "Name": "analogClock1",
-            "X": 81,
-            "Width": 233,
-            "Height": 243,
-            "FileNameBackground": "__designer\\Blue_Clocks_Backgrounds_clock_standard_background.png",
-            "RotationCenterX": 116,
-            "RotationCenterY": 116,
-            "Style": "Style1",
-            "Easing": "Back",
-            "EasingOption": "Out",
-            "ClockHands": [
-              {
-                "Type": "HourClockHand",
-                "FileNameHandImage": "__designer\\Blue_Clocks_Hands_clock_standard_hour_hand.png",
-                "RotationCenterX": 7,
-                "RotationCenterY": 52
-              },
-              {
-                "Type": "MinuteClockHand",
-                "FileNameHandImage": "__designer\\Blue_Clocks_Hands_clock_standard_minute_hand.png",
-                "RotationCenterX": 7,
-                "RotationCenterY": 67
-              },
-              {
-                "Type": "SecondClockHand",
-                "FileNameHandImage": "__designer\\Blue_Clocks_Hands_clock_standard_second_hand.png",
-                "RotationCenterX": 3,
-                "RotationCenterY": 66
-              }
-            ],
-            "InitialHour": 10,
-            "InitialMinute": 10
+            "Type": "CustomContainerInstance",
+            "Name": "brewing_data1",
+            "X": 16,
+            "Y": 15,
+            "Width": 79,
+            "Height": 72,
+            "CustomContainerDefinitionName": "brewing_data"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "wrench_symbol1",
+            "X": 249,
+            "Y": 9,
+            "Width": 60,
+            "Height": 60,
+            "CustomContainerDefinitionName": "wrench_symbol"
           }
         ],
         "Interactions": [
@@ -131,7 +112,7 @@
             },
             "Action": {
               "Type": "ActionHide",
-              "ActionComponent": "analogClock1"
+              "ActionComponent": "brewing_data1"
             }
           },
           {
@@ -142,13 +123,244 @@
             },
             "Action": {
               "Type": "ActionShow",
-              "ActionComponent": "analogClock1"
+              "ActionComponent": "brewing_data1"
             }
           }
         ]
       }
     ],
-    "CustomContainerDefinitions": [],
+    "CustomContainerDefinitions": [
+      {
+        "Name": "brewing_data",
+        "Width": 79,
+        "Height": 72,
+        "Components": [
+          {
+            "Type": "TextArea",
+            "Name": "temperature",
+            "Width": 70,
+            "Height": 24,
+            "TextId": "temp_unit",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "wildcard_temp"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pressure",
+            "Y": 48,
+            "Width": 79,
+            "Height": 24,
+            "TextId": "pressure_unit",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "wildcard_pressure"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "timer",
+            "Y": 24,
+            "Width": 79,
+            "Height": 24,
+            "TextId": "timer_unit",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "wildcard_timer"
+            }
+          }
+        ],
+        "Interactions": []
+      },
+      {
+        "Name": "wrench_symbol",
+        "Width": 60,
+        "Height": 60,
+        "Components": [
+          {
+            "Type": "Circle",
+            "Name": "circle1",
+            "Width": 60,
+            "Height": 60,
+            "Color": {
+              "Red": 84,
+              "Green": 84,
+              "Blue": 84
+            },
+            "CenterX": 30.0,
+            "CenterY": 30.0,
+            "Radius": 30.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Butt",
+            "Clickable": true
+          },
+          {
+            "Type": "Line",
+            "Name": "line1",
+            "Width": 60,
+            "Height": 60,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "StartX": 15.3,
+            "StartY": 43.6,
+            "EndX": 35.2,
+            "EndY": 23.6,
+            "LineWidth": 10.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "Circle",
+            "Name": "circle2",
+            "Width": 60,
+            "Height": 60,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "CenterX": 40.0,
+            "CenterY": 19.0,
+            "Radius": 8.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Butt"
+          },
+          {
+            "Type": "Line",
+            "Name": "line2",
+            "Width": 60,
+            "Height": 60,
+            "Color": {
+              "Red": 84,
+              "Green": 84,
+              "Blue": 84
+            },
+            "StartX": 40.7,
+            "StartY": 18.0,
+            "EndX": 45.7,
+            "EndY": 13.3,
+            "LineWidth": 5.5,
+            "LineEndingStyle": "Round"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionNone"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "CustomContainer1",
+        "Width": 194,
+        "Height": 168,
+        "Components": [
+          {
+            "Type": "Circle",
+            "Name": "circle1",
+            "Width": 80,
+            "Height": 80,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "CenterX": 40.0,
+            "CenterY": 40.0,
+            "Radius": 40.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Butt"
+          },
+          {
+            "Type": "Circle",
+            "Name": "circle2",
+            "Width": 80,
+            "Height": 80,
+            "CenterX": 40.0,
+            "CenterY": 40.0,
+            "Radius": 35.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Butt"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 22,
+            "Y": 28,
+            "Width": 36,
+            "Height": 24,
+            "TextId": "__SingleUse_KV9H",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "timer_"
+            }
+          },
+          {
+            "Type": "Circle",
+            "Name": "circle3",
+            "X": 97,
+            "Y": 67,
+            "Width": 80,
+            "Height": 80,
+            "Color": {
+              "Red": 255
+            },
+            "CenterX": 40.0,
+            "CenterY": 40.0,
+            "Radius": 40.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Butt"
+          },
+          {
+            "Type": "Circle",
+            "Name": "circle4",
+            "X": 97,
+            "Y": 67,
+            "Width": 80,
+            "Height": 80,
+            "Color": {
+              "Green": 187,
+              "Blue": 255
+            },
+            "CenterX": 40.0,
+            "CenterY": 40.0,
+            "Radius": 40.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Butt"
+          }
+        ],
+        "Interactions": []
+      }
+    ],
     "Name": "MyApplication",
     "Resolution": {
       "Width": 320,

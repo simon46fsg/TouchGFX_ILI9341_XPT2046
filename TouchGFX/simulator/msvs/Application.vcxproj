@@ -24,6 +24,10 @@
     <ClCompile Include="..\..\gui\src\screen1_screen\Screen1View.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\screen1_screen\Screen1ViewBase.cpp"/>
     <ClCompile Include="..\..\generated\simulator\src\video\SoftwareMJPEGDecoder.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\brewing_data.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\brewing_dataBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\wrench_symbol.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\wrench_symbolBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -177,6 +181,10 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen1_screen\Screen1ViewBase.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\SimConstants.hpp"/>
     <ClInclude Include="..\..\generated\simulator\include\simulator\video\SoftwareMJPEGDecoder.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\brewing_data.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\brewing_dataBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\wrench_symbol.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\wrench_symbolBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

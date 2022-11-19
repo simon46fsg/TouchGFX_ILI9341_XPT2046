@@ -3,49 +3,49 @@
 /*********************************************************************************/
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include <BitmapDatabase.hpp>
+#include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
+
 
 Screen1ViewBase::Screen1ViewBase() :
     flexButtonCallback(this, &Screen1ViewBase::flexButtonCallbackHandler)
 {
 
+    touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
+
     __background.setPosition(0, 0, 320, 240);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    box1.setPosition(0, 0, 320, 240);
-    box1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    background.setPosition(0, 0, 320, 240);
+    background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
     flexButton1.setBoxWithBorderPosition(0, 0, 81, 77);
     flexButton1.setBorderSize(5);
     flexButton1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 102, 153), touchgfx::Color::getColorFromRGB(0, 153, 204), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
-    flexButton1.setPosition(0, 0, 81, 77);
+    flexButton1.setPosition(0, 163, 81, 77);
     flexButton1.setAction(flexButtonCallback);
 
     flexButton2.setBoxWithBorderPosition(0, 0, 81, 72);
     flexButton2.setBorderSize(5);
     flexButton2.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 102, 153), touchgfx::Color::getColorFromRGB(0, 153, 204), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
-    flexButton2.setPosition(0, 171, 81, 72);
+    flexButton2.setPosition(239, 168, 81, 72);
     flexButton2.setAction(flexButtonCallback);
 
-    analogClock1.setXY(81, 0);
-    analogClock1.setBackground(BITMAP_BLUE_CLOCKS_BACKGROUNDS_CLOCK_STANDARD_BACKGROUND_ID, 116, 116);
-    analogClock1.setupSecondHand(BITMAP_BLUE_CLOCKS_HANDS_CLOCK_STANDARD_SECOND_HAND_ID, 3, 66);
-    analogClock1.setupMinuteHand(BITMAP_BLUE_CLOCKS_HANDS_CLOCK_STANDARD_MINUTE_HAND_ID, 7, 67);
-    analogClock1.setMinuteHandSecondCorrection(false);
-    analogClock1.setupHourHand(BITMAP_BLUE_CLOCKS_HANDS_CLOCK_STANDARD_HOUR_HAND_ID, 7, 52);
-    analogClock1.setHourHandMinuteCorrection(false);
-    analogClock1.initializeTime24Hour(10, 10, 0);
+    brewing_data1.setXY(16, 15);
+
+    wrench_symbol1.setXY(249, 9);
 
     add(__background);
-    add(box1);
+    add(background);
     add(flexButton1);
     add(flexButton2);
-    add(analogClock1);
+    add(brewing_data1);
+    add(wrench_symbol1);
 }
 
 void Screen1ViewBase::setupScreen()
 {
-
+    brewing_data1.initialize();
+    wrench_symbol1.initialize();
 }
 
 void Screen1ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
@@ -53,17 +53,17 @@ void Screen1ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonCo
     if (&src == &flexButton1)
     {
         //Interaction1
-        //When flexButton1 clicked hide analogClock1
-        //Hide analogClock1
-        analogClock1.setVisible(false);
-        analogClock1.invalidate();
+        //When flexButton1 clicked hide brewing_data1
+        //Hide brewing_data1
+        brewing_data1.setVisible(false);
+        brewing_data1.invalidate();
     }
     else if (&src == &flexButton2)
     {
         //Interaction2
-        //When flexButton2 clicked show analogClock1
-        //Show analogClock1
-        analogClock1.setVisible(true);
-        analogClock1.invalidate();
+        //When flexButton2 clicked show brewing_data1
+        //Show brewing_data1
+        brewing_data1.setVisible(true);
+        brewing_data1.invalidate();
     }
 }
