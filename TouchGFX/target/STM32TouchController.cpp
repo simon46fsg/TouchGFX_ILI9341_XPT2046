@@ -39,12 +39,16 @@
 //}
 //}
 
+FT6236_t3 touchcontroller(0, 0);
+TouchEvent touchevent;
+
 void STM32TouchController::init()
 {
     /**
      * Initialize touch controller and driver
      *
      */
+	touchcontroller.begin();
 }
 
 bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
@@ -74,7 +78,13 @@ bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
 //			return true;
 ////		}
 //	}
-    return false;
+
+	touchevent = touchcontroller.currentTouchEvent();
+	x = touchevent.location.x;
+	y = touchevent.location.y-80;
+
+
+    return touchevent.type;
 }
 
 /* USER CODE END STM32TouchController */

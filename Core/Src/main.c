@@ -115,9 +115,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  uint8_t test[2] = {0, 0};
-	  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&hi2c2, 0x38, &test, 2, 100);
-	  if(status != HAL_OK) Error_Handler();
+//	  if(status != HAL_OK) Error_Handler();
     /* USER CODE END WHILE */
 
   MX_TouchGFX_Process();
@@ -382,6 +380,7 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -390,13 +389,20 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(T_RESET_GPIO_Port, T_RESET_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, T_CS_Pin|RESET_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, DC_Pin|SPI1_NSS_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(T_RESET_GPIO_Port, T_RESET_Pin, GPIO_PIN_RESET);
+  /*Configure GPIO pin : T_RESET_Pin */
+  GPIO_InitStruct.Pin = T_RESET_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(T_RESET_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : T_CS_Pin RESET_Pin */
   GPIO_InitStruct.Pin = T_CS_Pin|RESET_Pin;
@@ -422,16 +428,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : T_INT_Pin */
   GPIO_InitStruct.Pin = T_INT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(T_INT_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : T_RESET_Pin */
-  GPIO_InitStruct.Pin = T_RESET_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(T_RESET_GPIO_Port, &GPIO_InitStruct);
 
 }
 

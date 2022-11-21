@@ -12,7 +12,7 @@
 
 extern I2C_HandleTypeDef hi2c2;
 
-#define FT6236_ADDR 0x38
+#define FT6236_ADDR 0x38 << 1
 
 enum {
     TouchIDLE = 0,
@@ -38,6 +38,7 @@ public:
 
     TouchEvent currentTouchEvent();
 
+    HAL_StatusTypeDef i2c2_status = HAL_OK;
 protected:
     uint8_t _addr;
     uint8_t _irq;

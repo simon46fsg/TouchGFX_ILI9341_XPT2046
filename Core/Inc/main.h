@@ -57,16 +57,16 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define T_RESET_Pin GPIO_PIN_3
+#define T_RESET_GPIO_Port GPIOE
 #define T_CS_Pin GPIO_PIN_3
 #define T_CS_GPIO_Port GPIOC
 #define DC_Pin GPIO_PIN_12
 #define DC_GPIO_Port GPIOB
-#define T_INT_Pin GPIO_PIN_9
-#define T_INT_GPIO_Port GPIOD
 #define RESET_Pin GPIO_PIN_7
 #define RESET_GPIO_Port GPIOC
-#define T_RESET_Pin GPIO_PIN_7
-#define T_RESET_GPIO_Port GPIOD
+#define T_INT_Pin GPIO_PIN_6
+#define T_INT_GPIO_Port GPIOD
 #define SPI1_NSS_Pin GPIO_PIN_6
 #define SPI1_NSS_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */

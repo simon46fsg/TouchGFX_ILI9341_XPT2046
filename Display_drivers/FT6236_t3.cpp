@@ -13,6 +13,9 @@ FT6236_t3::FT6236_t3(uint8_t addr, uint8_t irq) {
 }
 
 void FT6236_t3::begin() {
+	HAL_GPIO_WritePin(T_RESET_GPIO_Port, T_RESET_Pin, GPIO_PIN_RESET);
+	HAL_Delay(10);
+	HAL_GPIO_WritePin(T_RESET_GPIO_Port, T_RESET_Pin, GPIO_PIN_SET);
     writeFT6236TouchRegister(0, 0); // device mode = Normal
     writeFT6236TouchRegister(0xA4, 0x00); // Interrupt polling mode
 }
@@ -20,7 +23,8 @@ void FT6236_t3::begin() {
 TouchEvent FT6236_t3::currentTouchEvent() {
     TouchEvent current;
     current.type = TouchIDLE;
-//    attention = digitalRead(_irq); todo replace line
+//    attention = digitalRead(_irq);
+    attention = HAL_GPIO_ReadPin(T_INT_GPIO_Port, T_INT_Pin);
     
     if (!attention && oldAttention) {
         uint8_t count = readFT6236TouchLocation(touchLocations, 1);
@@ -43,8 +47,14 @@ void FT6236_t3::writeFT6236TouchRegister(uint8_t reg, uint8_t val) {
 //    Wire.write(reg);
 //    Wire.write(val);
 //    Wire.endTransmission();
-    HAL_I2C_Master_Transmit(&hi2c2, _addr, &reg, 1, 100);
-    HAL_I2C_Master_Transmit(&hi2c2, _addr, &val, 1, 100);
+	uint8_t buf[2];
+	buf[0] = reg;
+	buf[1] = val;
+    i2c2_status = HAL_I2C_Master_Transmit(&hi2c2, FT6236_ADDR, buf, 2, 100);
+    if(i2c2_status != HAL_OK) {
+    		HAL_Delay(1);
+    	}
+
 }
 
 uint8_t FT6236_t3::readFT6236TouchLocation(TouchLocation *pLoc, uint8_t num) {
@@ -83,10 +93,14 @@ uint8_t FT6236_t3::readFT6236TouchRegister(uint8_t reg) {
 //    Wire.beginTransmission(_addr);
 //    Wire.write(reg);  // register 0
 //    uint8_t retVal = Wire.endTransmission();
+
 	uint8_t retVal = 0;
-	HAL_StatusTypeDef ret = HAL_I2C_Master_Transmit(&hi2c2, _addr, &reg, 1, 100);
-	if(ret == HAL_OK) {
-		HAL_I2C_Master_Receive(&hi2c2, _addr, &retVal, 1, 100);
+	i2c2_status = HAL_I2C_Master_Transmit(&hi2c2, FT6236_ADDR, &reg, 1, 100);
+	if(i2c2_status == HAL_OK) {
+		i2c2_status = HAL_I2C_Master_Receive(&hi2c2, FT6236_ADDR, &retVal, 1, 100);
+	}
+	if(i2c2_status != HAL_OK) {
+		HAL_Delay(1);
 	}
   
 //    Wire.requestFrom(_addr, uint8_t(1) );    // request 6 uint8_ts from slave device #2
@@ -112,10 +126,14 @@ uint8_t FT6236_t3::readFT6236TouchAddr(uint8_t regAddr, uint8_t *pBuf, uint8_t l
 //        pBuf[i] = Wire.read();
 //    }
 
-	HAL_StatusTypeDef ret = HAL_I2C_Master_Transmit(&hi2c2, _addr, &regAddr, 1, 100);
-	if(ret == HAL_OK) {
-		HAL_I2C_Master_Receive(&hi2c2, _addr, pBuf, len, 100);
+	i2c2_status = HAL_I2C_Master_Transmit(&hi2c2, FT6236_ADDR, &regAddr, 1, 100);
+	if(i2c2_status == HAL_OK) {
+		i2c2_status = HAL_I2C_Master_Receive(&hi2c2, FT6236_ADDR, pBuf, len, 100);
 	}
+	if(i2c2_status != HAL_OK) {
+			HAL_Delay(1);
+		}
+
   
 	uint8_t i = len - 1; //i ist dumm
     return i;
