@@ -41,6 +41,16 @@
 
 FT6236_t3 touchcontroller(0, 0);
 TouchEvent touchevent;
+bool touchInterrupt = false;
+
+extern "C" {
+	void getTouchData();
+}
+
+void getTouchData() {
+//	touchInterrupt = true;
+//	touchevent = touchcontroller.currentTouchEvent();
+}
 
 void STM32TouchController::init()
 {
@@ -78,13 +88,25 @@ bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
 //			return true;
 ////		}
 //	}
+//	static bool touched = false;
+//	if(touchInterrupt) {
+//		touched = true;
+//		touchInterrupt = false;
+//		x = touchevent.location.x;
+//		y = touchevent.location.y-80;
+//	}else{
+//		touched = false;
+//	}
 
 	touchevent = touchcontroller.currentTouchEvent();
-	x = touchevent.location.x;
-	y = touchevent.location.y-80;
+	x = 320-touchevent.location.x;
+	y = 240-(touchevent.location.y-80);
+	if(touchevent.type == 1) {
+		return true;
+	}else{
+		return false;
+	}
 
-
-    return touchevent.type;
 }
 
 /* USER CODE END STM32TouchController */

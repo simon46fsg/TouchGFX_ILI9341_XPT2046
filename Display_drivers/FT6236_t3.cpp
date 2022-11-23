@@ -16,6 +16,7 @@ void FT6236_t3::begin() {
 	HAL_GPIO_WritePin(T_RESET_GPIO_Port, T_RESET_Pin, GPIO_PIN_RESET);
 	HAL_Delay(10);
 	HAL_GPIO_WritePin(T_RESET_GPIO_Port, T_RESET_Pin, GPIO_PIN_SET);
+	HAL_Delay(1000);
     writeFT6236TouchRegister(0, 0); // device mode = Normal
     writeFT6236TouchRegister(0xA4, 0x00); // Interrupt polling mode
 }
@@ -25,8 +26,8 @@ TouchEvent FT6236_t3::currentTouchEvent() {
     current.type = TouchIDLE;
 //    attention = digitalRead(_irq);
     attention = HAL_GPIO_ReadPin(T_INT_GPIO_Port, T_INT_Pin);
-    
-    if (!attention && oldAttention) {
+
+    if (!attention) {
         uint8_t count = readFT6236TouchLocation(touchLocations, 1);
         if (count) {
             /*for (uint8_t i = 0; i < count; i++) {} Ignore multitouch */
