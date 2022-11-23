@@ -24,33 +24,10 @@
 #include "../../Display_drivers/ili9341.h"
 #include "../../Display_drivers/FT6236_t3.h"
 
-//extern "C" {
-//static void ConvXPTtoILI(uint16_t *x, uint16_t *y)
-//{
-//	int16_t tx,ty;
-//	tx = (int16_t)(((int32_t)*x - XPT_XMIN) * GUI_WIDTH / XPT_WIDTH);
-//	tx = (tx < 0) ? 0 : tx;
-//	tx = (tx >= GUI_WIDTH) ? GUI_WIDTH-1 : tx;
-//	ty = (int16_t)(((int32_t)*y - XPT_YMIN) * GUI_HEIGHT / XPT_HEIGHT);
-//	ty = (ty < 0) ? 0 : ty;
-//	ty = (ty >= GUI_HEIGHT) ? GUI_HEIGHT-1 : ty;
-//	*x = tx;
-//	*y = ty;
-//}
-//}
-
 FT6236_t3 touchcontroller(0, 0);
 TouchEvent touchevent;
-bool touchInterrupt = false;
 
-extern "C" {
-	void getTouchData();
-}
 
-void getTouchData() {
-//	touchInterrupt = true;
-//	touchevent = touchcontroller.currentTouchEvent();
-}
 
 void STM32TouchController::init()
 {
@@ -73,30 +50,6 @@ bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
      * By default sampleTouch is called every tick, this can be adjusted by HAL::setTouchSampleRate(int8_t);
      *
      */
-	
-//	static uint16_t prevx = GUI_WIDTH;
-//	static uint16_t prevy = GUI_HEIGHT;
-//	uint16_t intx, inty;
-//	XPT2046_Update(&intx, &inty);
-//	if (XPT2046_IsReasonable(intx, inty)) {
-//		ConvXPTtoILI(&intx, &inty);
-////		if (intx != prevx || inty != prevy) {
-//			prevx = intx;
-//			prevy = inty;
-//			x = (int32_t)intx;
-//			y = (int32_t)inty;
-//			return true;
-////		}
-//	}
-//	static bool touched = false;
-//	if(touchInterrupt) {
-//		touched = true;
-//		touchInterrupt = false;
-//		x = touchevent.location.x;
-//		y = touchevent.location.y-80;
-//	}else{
-//		touched = false;
-//	}
 
 	touchevent = touchcontroller.currentTouchEvent();
 	x = 320-touchevent.location.x;

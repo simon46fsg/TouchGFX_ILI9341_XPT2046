@@ -67,7 +67,6 @@ void Error_Handler(void);
 #define RESET_GPIO_Port GPIOC
 #define T_INT_Pin GPIO_PIN_6
 #define T_INT_GPIO_Port GPIOD
-#define T_INT_EXTI_IRQn EXTI9_5_IRQn
 #define SPI1_NSS_Pin GPIO_PIN_6
 #define SPI1_NSS_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
