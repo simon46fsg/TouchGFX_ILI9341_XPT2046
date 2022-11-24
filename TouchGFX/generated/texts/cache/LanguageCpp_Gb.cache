@@ -1,1 +1,1 @@
-{"remap":"yes","language":"GB","language_index":0,"indices":[["24","T_WILDCARD_PRESSURE"],["17","T_WILDCARD_TEMP"],["21","T_WILDCARD_TIMER"],["6","T_TIMER_UNIT"],["0","T_PRESSURE_UNIT"],["12","T_TEMP_UNIT"]]}
+{"remap":"yes","language":"GB","language_index":0,"indices":[["33","T_TIMER_"],["20","T_WILD"],["17","T___SINGLEUSE_KV9H"],["36","T_WILDCARD_PRESSURE"],["29","T_WILDCARD_TEMP"],["33","T_WILDCARD_TIMER"],["6","T_TIMER_UNIT"],["0","T_PRESSURE_UNIT"],["12","T_TEMP_UNIT"]]}

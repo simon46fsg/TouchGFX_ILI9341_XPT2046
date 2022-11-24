@@ -63,6 +63,8 @@ void Error_Handler(void);
 #define T_CS_GPIO_Port GPIOC
 #define DC_Pin GPIO_PIN_12
 #define DC_GPIO_Port GPIOB
+#define CS_TEMP_Pin GPIO_PIN_15
+#define CS_TEMP_GPIO_Port GPIOB
 #define RESET_Pin GPIO_PIN_7
 #define RESET_GPIO_Port GPIOC
 #define T_INT_Pin GPIO_PIN_6

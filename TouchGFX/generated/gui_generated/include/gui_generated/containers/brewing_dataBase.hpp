@@ -27,6 +27,16 @@ protected:
     touchgfx::TextAreaWithOneWildcard pressure;
     touchgfx::TextAreaWithOneWildcard timer;
 
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t TEMPERATURE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar temperatureBuffer[TEMPERATURE_SIZE];
+    static const uint16_t PRESSURE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar pressureBuffer[PRESSURE_SIZE];
+    static const uint16_t TIMER_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar timerBuffer[TIMER_SIZE];
+
 private:
 
 };

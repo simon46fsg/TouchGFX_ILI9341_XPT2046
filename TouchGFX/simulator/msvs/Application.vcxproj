@@ -28,6 +28,8 @@
     <ClCompile Include="..\..\generated\gui_generated\src\containers\brewing_dataBase.cpp"/>
     <ClCompile Include="..\..\gui\src\containers\wrench_symbol.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\wrench_symbolBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\CustomContainer1.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\CustomContainer1Base.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -185,6 +187,8 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\brewing_dataBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\containers\wrench_symbol.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\wrench_symbolBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\CustomContainer1.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\CustomContainer1Base.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

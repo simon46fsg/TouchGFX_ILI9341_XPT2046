@@ -148,7 +148,9 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "wildcard_temp"
+              "TextId": "wildcard_temp",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -165,7 +167,9 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "wildcard_pressure"
+              "TextId": "wildcard_pressure",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -182,7 +186,9 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "wildcard_timer"
+              "TextId": "wildcard_timer",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           }
         ],

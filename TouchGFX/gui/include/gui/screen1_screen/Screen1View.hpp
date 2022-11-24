@@ -3,6 +3,7 @@
 
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
+#include "../../Hardware_Interfacee/temp_sensor.h"
 
 class Screen1View : public Screen1ViewBase
 {
@@ -11,6 +12,7 @@ public:
     virtual ~Screen1View() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+    void handleTickEvent();
 protected:
 };
 

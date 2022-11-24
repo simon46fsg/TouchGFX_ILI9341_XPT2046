@@ -10,6 +10,8 @@ public:
     virtual ~brewing_data() {}
 
     virtual void initialize();
+
+    void updateTempData(float temp);
 protected:
 };
 
