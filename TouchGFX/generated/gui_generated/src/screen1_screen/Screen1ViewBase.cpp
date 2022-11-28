@@ -3,6 +3,7 @@
 /*********************************************************************************/
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <touchgfx/Color.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 
 
@@ -34,12 +35,20 @@ Screen1ViewBase::Screen1ViewBase() :
 
     wrench_symbol1.setXY(249, 9);
 
+    textArea1.setPosition(16, 87, 105, 25);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textArea1.setLinespacing(0);
+    textArea1Buffer[0] = 0;
+    textArea1.setWildcard(textArea1Buffer);
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0UKW));
+
     add(__background);
     add(background);
     add(flexButton1);
     add(flexButton2);
     add(brewing_data1);
     add(wrench_symbol1);
+    add(textArea1);
 }
 
 void Screen1ViewBase::setupScreen()

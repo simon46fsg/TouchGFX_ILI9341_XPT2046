@@ -11,6 +11,9 @@
 #include <touchgfx/containers/buttons/Buttons.hpp>
 #include <gui/containers/brewing_data.hpp>
 #include <gui/containers/wrench_symbol.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/mixins/Draggable.hpp>
+#include <touchgfx/mixins/ClickListener.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -32,7 +35,14 @@ protected:
     touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  flexButton1;
     touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  flexButton2;
     brewing_data brewing_data1;
-    wrench_symbol wrench_symbol1;
+    touchgfx::Draggable< touchgfx::ClickListener< wrench_symbol > > wrench_symbol1;
+    touchgfx::TextAreaWithOneWildcard textArea1;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t TEXTAREA1_SIZE = 6;
+    touchgfx::Unicode::UnicodeChar textArea1Buffer[TEXTAREA1_SIZE];
 
 private:
 

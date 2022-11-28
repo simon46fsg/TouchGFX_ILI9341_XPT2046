@@ -18,5 +18,13 @@ void Screen1View::tearDownScreen()
 }
 
 void Screen1View::handleTickEvent() {
-	brewing_data1.updateTempData(temperatureSensor.temp);
+	static uint8_t i = 0;
+	i++;
+	if (i < 30) {
+		brewing_data1.updateTempData(temperatureSensor.temp);
+		brewing_data1.invalidate();
+		i = 0;
+	}
+//	Unicode::snprintfFloat(textArea1Buffer, TEXTAREA1_SIZE, "%2.2f", updateTemp());
+//	textArea1.invalidate();
 }

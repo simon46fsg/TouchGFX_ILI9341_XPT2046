@@ -10,12 +10,13 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE;
 // Remap all strings
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
-    33, // T_TIMER_: "23"
+    12, // T___SINGLEUSE_0UKW: "<> ?C"
+    35, // T_TIMER_: "23"
     20, // T_WILD: "New Text"
     17, // T___SINGLEUSE_KV9H: "<>s"
-    36, // T_WILDCARD_PRESSURE: "9"
-    29, // T_WILDCARD_TEMP: "100"
-    33, // T_WILDCARD_TIMER: "23"
+    38, // T_WILDCARD_PRESSURE: "9"
+    29, // T_WILDCARD_TEMP: "30.00"
+    35, // T_WILDCARD_TIMER: "23"
     6,  // T_TIMER_UNIT: "<> sec"
     0,  // T_PRESSURE_UNIT: "<> bar"
     12  // T_TEMP_UNIT: "<> ?C"

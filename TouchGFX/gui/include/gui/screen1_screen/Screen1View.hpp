@@ -3,7 +3,11 @@
 
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
-#include "../../Hardware_Interfacee/temp_sensor.h"
+
+extern "C" {
+	#include "../../Hardware_Interfacee/temp_sensor.h"
+}
+
 
 class Screen1View : public Screen1ViewBase
 {

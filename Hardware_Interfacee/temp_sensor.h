@@ -13,11 +13,14 @@
 
 typedef struct {
 	float temp;
-	bool openCircuit;
+	bool openCircuit; //true when no sensor is attached
+	uint8_t dummySingBit; //always 0
+	uint8_t D1;
+	uint8_t D2;
 }TemperatureSensor;
 
 
-void updateTemp();
+float updateTemp();
 uint16_t get_max6675_code();
 
 

@@ -7,23 +7,23 @@
 
 brewing_dataBase::brewing_dataBase()
 {
-    setWidth(79);
+    setWidth(105);
     setHeight(72);
-    temperature.setPosition(0, 0, 70, 24);
+    temperature.setPosition(0, 0, 97, 24);
     temperature.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     temperature.setLinespacing(0);
     Unicode::snprintf(temperatureBuffer, TEMPERATURE_SIZE, "%s", touchgfx::TypedText(T_WILDCARD_TEMP).getText());
     temperature.setWildcard(temperatureBuffer);
     temperature.setTypedText(touchgfx::TypedText(T_TEMP_UNIT));
 
-    pressure.setPosition(0, 48, 79, 24);
+    pressure.setPosition(0, 48, 105, 24);
     pressure.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     pressure.setLinespacing(0);
     Unicode::snprintf(pressureBuffer, PRESSURE_SIZE, "%s", touchgfx::TypedText(T_WILDCARD_PRESSURE).getText());
     pressure.setWildcard(pressureBuffer);
     pressure.setTypedText(touchgfx::TypedText(T_PRESSURE_UNIT));
 
-    timer.setPosition(0, 24, 79, 24);
+    timer.setPosition(0, 24, 105, 24);
     timer.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     timer.setLinespacing(0);
     Unicode::snprintf(timerBuffer, TIMER_SIZE, "%s", touchgfx::TypedText(T_WILDCARD_TIMER).getText());

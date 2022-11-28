@@ -89,7 +89,7 @@
             "Name": "brewing_data1",
             "X": 16,
             "Y": 15,
-            "Width": 79,
+            "Width": 105,
             "Height": 72,
             "CustomContainerDefinitionName": "brewing_data"
           },
@@ -101,6 +101,25 @@
             "Width": 60,
             "Height": 60,
             "CustomContainerDefinitionName": "wrench_symbol"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 16,
+            "Y": 87,
+            "Width": 105,
+            "Height": 25,
+            "TextId": "__SingleUse_0UKW",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 6
+            }
           }
         ],
         "Interactions": [
@@ -132,13 +151,13 @@
     "CustomContainerDefinitions": [
       {
         "Name": "brewing_data",
-        "Width": 79,
+        "Width": 105,
         "Height": 72,
         "Components": [
           {
             "Type": "TextArea",
             "Name": "temperature",
-            "Width": 70,
+            "Width": 97,
             "Height": 24,
             "TextId": "temp_unit",
             "TextRotation": "0",
@@ -157,7 +176,7 @@
             "Type": "TextArea",
             "Name": "pressure",
             "Y": 48,
-            "Width": 79,
+            "Width": 105,
             "Height": 24,
             "TextId": "pressure_unit",
             "TextRotation": "0",
@@ -176,7 +195,7 @@
             "Type": "TextArea",
             "Name": "timer",
             "Y": 24,
-            "Width": 79,
+            "Width": 105,
             "Height": 24,
             "TextId": "timer_unit",
             "TextRotation": "0",
@@ -213,8 +232,7 @@
             "CenterY": 30.0,
             "Radius": 30.0,
             "EndAngle": 360.0,
-            "CapPrecision": "Butt",
-            "Clickable": true
+            "CapPrecision": "Butt"
           },
           {
             "Type": "Line",

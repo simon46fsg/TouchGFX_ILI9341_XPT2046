@@ -12,6 +12,7 @@ enum LANGUAGES
 
 enum TEXTS
 {
+    T___SINGLEUSE_0UKW,
     T_TIMER_,
     T_WILD,
     T___SINGLEUSE_KV9H,
