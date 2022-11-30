@@ -12,6 +12,8 @@ public:
     virtual void initialize();
 
     void updateTempData(float temp);
+    void updatePressureData(float pressureVal);
+    void updateTimer(float seconds);
 protected:
 };
 

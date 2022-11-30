@@ -6,6 +6,7 @@
 
 extern "C" {
 	#include "../../Hardware_Interfacee/temp_sensor.h"
+	#include "../../Hardware_Interfacee/pressure_sensor.h"
 }
 
 

@@ -48,6 +48,8 @@ void TouchGFXHAL::initialize()
     // Please note, HAL::initialize() must be called to initialize the framework.
 
     TouchGFXGeneratedHAL::initialize();
+    //init display
+    ILI9341_Init();
 }
 
 /**

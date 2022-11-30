@@ -1,6 +1,7 @@
 #include <gui/screen1_screen/Screen1View.hpp>
 
 extern TemperatureSensor temperatureSensor;
+extern PressureSensor pressureSensor;
 
 Screen1View::Screen1View()
 {
@@ -22,9 +23,8 @@ void Screen1View::handleTickEvent() {
 	i++;
 	if (i < 30) {
 		brewing_data1.updateTempData(temperatureSensor.temp);
+		brewing_data1.updatePressureData(pressureSensor.pressure);
 		brewing_data1.invalidate();
 		i = 0;
 	}
-//	Unicode::snprintfFloat(textArea1Buffer, TEXTAREA1_SIZE, "%2.2f", updateTemp());
-//	textArea1.invalidate();
 }

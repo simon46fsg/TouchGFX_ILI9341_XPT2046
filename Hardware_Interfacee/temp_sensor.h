@@ -20,8 +20,8 @@ typedef struct {
 }TemperatureSensor;
 
 
-float updateTemp();
-uint16_t get_max6675_code();
+void temp_updateTemp(uint16_t temp_data);
+uint16_t temp_getMAX6675Code();
 
 
 
