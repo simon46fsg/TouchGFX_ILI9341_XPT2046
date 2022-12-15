@@ -125,7 +125,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  pressure_convertADCtoPressure(pressure_readADC());
+
     /* USER CODE END WHILE */
 
   MX_TouchGFX_Process();
@@ -606,7 +606,13 @@ static void MX_GPIO_Init(void)
 
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim) {
 	if(htim->Instance == TIM3) {
+		/*
+		 * Prescaler: 27500-1
+		 * AutoreloadREG: 2500-1
+		 * -> T = 250ms / f = 4 Hz
+		 */
 			temp_updateTemp(temp_getMAX6675Code());
+			pressure_convertADCtoPressure(pressure_readADC());
 	}
 	if(htim->Instance == TIM2) {
 		touchgfxSignalVSync();
