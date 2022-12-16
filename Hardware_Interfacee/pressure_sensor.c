@@ -29,8 +29,8 @@ void pressure_convertADCtoPressure(uint16_t adc_data) {
 	if (outputVoltage < 0) {
 		outputVoltage = 0;
 	}
-
-	pressureSensor.pressure = outputVoltage *(12.0/4); //convert to bar
+	outputVoltage *= 12.0/4; //convert to bar
+	pressureSensor.pressure = FIRFilter_pressure_Update(outputVoltage); //low pass filter
 }
 
 uint16_t pressure_readADC() {

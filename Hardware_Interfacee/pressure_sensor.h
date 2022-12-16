@@ -10,8 +10,7 @@
 
 #include "main.h"
 #include "stdbool.h"
-
-
+#include "../Core/Inc/FIR.h"
 
 typedef struct {
 	float pressure;
