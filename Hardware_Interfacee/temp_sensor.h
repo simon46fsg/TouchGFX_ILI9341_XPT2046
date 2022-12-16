@@ -10,6 +10,7 @@
 
 #include "main.h"
 #include "stdbool.h"
+#include "FIR.h"
 
 typedef struct {
 	float temp;

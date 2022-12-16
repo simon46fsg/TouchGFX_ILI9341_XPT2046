@@ -17,10 +17,9 @@ void temp_updateTemp(uint16_t temp_data) {
 	uint8_t openFlag = (temp_data & 0b100) >> 2;
 	int tempCode = temp_data >> 3;
 	float temp = tempCode * 0.25;
-	temperatureSensor.temp = temp;
+	temperatureSensor.temp = FIRFilter_temp_Update(temp);
 	temperatureSensor.openCircuit = (bool) openFlag;
 	temperatureSensor.dummySingBit = dummySignBit;
-	return temp;
 }
 
 uint16_t temp_getMAX6675Code() {

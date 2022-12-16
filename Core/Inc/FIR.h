@@ -28,6 +28,10 @@ void FIRFilter_pressure_Init();
 
 float FIRFilter_pressure_Update(float in);
 
+void FIRFilter_temp_Init();
+
+float FIRFilter_temp_Update(float in);
+
 void FIRFilter_Init(FIRFilter *filt, float *coeff, float *buf, const uint8_t order);
 
 float FIRFilter_Update(FIRFilter *filt, float in);

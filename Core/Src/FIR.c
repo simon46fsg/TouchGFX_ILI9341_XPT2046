@@ -16,12 +16,24 @@ float pressure_coeff[] = {0.25, 0.25, 0.25, 0.25};
 float pressure_buf[4];
 FIRFilter pressure_FIRFilter;
 
+float temp_coeff[] = {0.25, 0.25, 0.25, 0.25};
+float temp_buf[4];
+FIRFilter temp_FIRFilter;
+
 void FIRFilter_pressure_Init() {
 	FIRFilter_Init(&pressure_FIRFilter, pressure_coeff, pressure_buf, 4);
 }
 
 float FIRFilter_pressure_Update(float in) {
 	return FIRFilter_Update(&pressure_FIRFilter, in);
+}
+
+void FIRFilter_temp_Init() {
+	FIRFilter_Init(&temp_FIRFilter, temp_coeff, temp_buf, 4);
+}
+
+float FIRFilter_temp_Update(float in) {
+	return FIRFilter_Update(&temp_FIRFilter, in);
 }
 
 void FIRFilter_Init(FIRFilter *filt, float *coeff, float *buf, const uint8_t order) {

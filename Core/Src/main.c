@@ -111,6 +111,7 @@ int main(void)
 
   //init digital filters
   FIRFilter_pressure_Init();
+  FIRFilter_temp_Init();
 
   /* USER CODE END SysInit */
 
