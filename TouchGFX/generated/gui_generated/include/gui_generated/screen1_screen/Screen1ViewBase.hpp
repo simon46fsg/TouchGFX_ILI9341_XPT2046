@@ -11,9 +11,7 @@
 #include <touchgfx/containers/buttons/Buttons.hpp>
 #include <gui/containers/brewing_data.hpp>
 #include <gui/containers/wrench_symbol.hpp>
-#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
-#include <touchgfx/mixins/Draggable.hpp>
-#include <touchgfx/mixins/ClickListener.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -21,6 +19,19 @@ public:
     Screen1ViewBase();
     virtual ~Screen1ViewBase() {}
     virtual void setupScreen();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void startStopWatch()
+    {
+        // Override and implement this function in Screen1
+    }
+
+    virtual void resetStopWatch()
+    {
+        // Override and implement this function in Screen1
+    }
 
 protected:
     FrontendApplication& application() {
@@ -32,17 +43,12 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box background;
-    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  flexButton1;
     touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  flexButton2;
     brewing_data brewing_data1;
-    touchgfx::Draggable< touchgfx::ClickListener< wrench_symbol > > wrench_symbol1;
-    touchgfx::TextAreaWithOneWildcard textArea1;
-
-    /*
-     * Wildcard Buffers
-     */
-    static const uint16_t TEXTAREA1_SIZE = 6;
-    touchgfx::Unicode::UnicodeChar textArea1Buffer[TEXTAREA1_SIZE];
+    wrench_symbol wrench_symbol1;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  flexButton2_1;
+    touchgfx::TextArea textArea1;
+    touchgfx::TextArea textArea2;
 
 private:
 

@@ -18,7 +18,11 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
     void handleTickEvent();
+    void startStopWatch();
+    void resetStopWatch();
 protected:
+    float stopWatchTime;
+    bool stopWatchIsRunning;
 };
 
 #endif // SCREEN1VIEW_HPP

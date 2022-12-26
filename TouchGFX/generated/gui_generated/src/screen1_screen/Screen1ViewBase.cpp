@@ -19,36 +19,40 @@ Screen1ViewBase::Screen1ViewBase() :
     background.setPosition(0, 0, 320, 240);
     background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    flexButton1.setBoxWithBorderPosition(0, 0, 81, 77);
-    flexButton1.setBorderSize(5);
-    flexButton1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 102, 153), touchgfx::Color::getColorFromRGB(0, 153, 204), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
-    flexButton1.setPosition(0, 163, 81, 77);
-    flexButton1.setAction(flexButtonCallback);
-
-    flexButton2.setBoxWithBorderPosition(0, 0, 81, 72);
+    flexButton2.setBoxWithBorderPosition(0, 0, 136, 72);
     flexButton2.setBorderSize(5);
     flexButton2.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 102, 153), touchgfx::Color::getColorFromRGB(0, 153, 204), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
-    flexButton2.setPosition(239, 168, 81, 72);
+    flexButton2.setPosition(184, 168, 136, 72);
     flexButton2.setAction(flexButtonCallback);
 
-    brewing_data1.setXY(16, 15);
+    brewing_data1.setXY(1, 3);
 
     wrench_symbol1.setXY(249, 9);
 
-    textArea1.setPosition(16, 87, 105, 25);
+    flexButton2_1.setBoxWithBorderPosition(0, 0, 130, 72);
+    flexButton2_1.setBorderSize(5);
+    flexButton2_1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 102, 153), touchgfx::Color::getColorFromRGB(0, 153, 204), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
+    flexButton2_1.setPosition(0, 168, 130, 72);
+    flexButton2_1.setAction(flexButtonCallback);
+
+    textArea1.setXY(193, 192);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea1.setLinespacing(0);
-    textArea1Buffer[0] = 0;
-    textArea1.setWildcard(textArea1Buffer);
-    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0UKW));
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IXPG));
+
+    textArea2.setXY(38, 192);
+    textArea2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textArea2.setLinespacing(0);
+    textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_529V));
 
     add(__background);
     add(background);
-    add(flexButton1);
     add(flexButton2);
     add(brewing_data1);
     add(wrench_symbol1);
+    add(flexButton2_1);
     add(textArea1);
+    add(textArea2);
 }
 
 void Screen1ViewBase::setupScreen()
@@ -59,20 +63,18 @@ void Screen1ViewBase::setupScreen()
 
 void Screen1ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
 {
-    if (&src == &flexButton1)
+    if (&src == &flexButton2)
     {
-        //Interaction1
-        //When flexButton1 clicked hide brewing_data1
-        //Hide brewing_data1
-        brewing_data1.setVisible(false);
-        brewing_data1.invalidate();
+        //startStopWatch
+        //When flexButton2 clicked call virtual function
+        //Call startStopWatch
+        startStopWatch();
     }
-    else if (&src == &flexButton2)
+    else if (&src == &flexButton2_1)
     {
-        //Interaction2
-        //When flexButton2 clicked show brewing_data1
-        //Show brewing_data1
-        brewing_data1.setVisible(true);
-        brewing_data1.invalidate();
+        //resetStopWatch
+        //When flexButton2_1 clicked call virtual function
+        //Call resetStopWatch
+        resetStopWatch();
     }
 }

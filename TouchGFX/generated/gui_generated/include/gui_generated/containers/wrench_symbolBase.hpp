@@ -9,7 +9,6 @@
 #include <touchgfx/widgets/canvas/Circle.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/canvas/Line.hpp>
-#include <touchgfx/mixins/ClickListener.hpp>
 
 class wrench_symbolBase : public touchgfx::Container
 {
@@ -26,7 +25,7 @@ protected:
     /*
      * Member Declarations
      */
-    touchgfx::ClickListener< touchgfx::Circle > circle1;
+    touchgfx::Circle circle1;
     touchgfx::PainterRGB565 circle1Painter;
     touchgfx::Line line1;
     touchgfx::PainterRGB565 line1Painter;

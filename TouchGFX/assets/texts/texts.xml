@@ -6,8 +6,11 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_0UKW" Alignment="Right" TypographyId="Default">
-        <Translation Language="GB">&lt;value&gt; °C</Translation>
+      <Text Id="__SingleUse_529V" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Reset</Translation>
+      </Text>
+      <Text Id="__SingleUse_IXPG" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Start / Stop</Translation>
       </Text>
       <Text Id="timer_" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">23</Translation>
@@ -22,7 +25,7 @@
         <Translation Language="GB">9</Translation>
       </Text>
       <Text Id="wildcard_temp" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">30.00</Translation>
+        <Translation Language="GB">3000.00</Translation>
       </Text>
       <Text Id="wildcard_timer" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">23</Translation>

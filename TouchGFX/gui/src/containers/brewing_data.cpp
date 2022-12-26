@@ -21,5 +21,6 @@ void brewing_data::updatePressureData(float pressureVal) {
 }
 
 void brewing_data::updateTimer(float seconds) {
-
+	Unicode::snprintfFloat(timerBuffer, TIMER_SIZE, "%4.2f", seconds);
+	temperature.invalidate();
 }

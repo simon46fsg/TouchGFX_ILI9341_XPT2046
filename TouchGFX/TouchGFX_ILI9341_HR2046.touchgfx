@@ -13,46 +13,10 @@
           },
           {
             "Type": "FlexButton",
-            "Name": "flexButton1",
-            "Y": 163,
-            "Width": 81,
-            "Height": 77,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "BoxWithBorderButtonStyle",
-                "Width": 81,
-                "Height": 77,
-                "LockToFlexButtonSize": true,
-                "BorderSize": 5,
-                "ColorReleased": {
-                  "Green": 102,
-                  "Blue": 153
-                },
-                "ColorPressed": {
-                  "Green": 153,
-                  "Blue": 204
-                },
-                "ColorBorderReleased": {
-                  "Green": 51,
-                  "Blue": 102
-                },
-                "ColorBorderPressed": {
-                  "Red": 51,
-                  "Green": 102,
-                  "Blue": 153
-                }
-              }
-            ]
-          },
-          {
-            "Type": "FlexButton",
             "Name": "flexButton2",
-            "X": 239,
+            "X": 184,
             "Y": 168,
-            "Width": 81,
+            "Width": 136,
             "Height": 72,
             "ButtonTrigger": {
               "Type": "TouchButtonTrigger"
@@ -60,7 +24,7 @@
             "ButtonStyles": [
               {
                 "Type": "BoxWithBorderButtonStyle",
-                "Width": 81,
+                "Width": 136,
                 "Height": 72,
                 "LockToFlexButtonSize": true,
                 "BorderSize": 5,
@@ -87,9 +51,9 @@
           {
             "Type": "CustomContainerInstance",
             "Name": "brewing_data1",
-            "X": 16,
-            "Y": 15,
-            "Width": 105,
+            "X": 1,
+            "Y": 3,
+            "Width": 129,
             "Height": 72,
             "CustomContainerDefinitionName": "brewing_data"
           },
@@ -103,46 +67,95 @@
             "CustomContainerDefinitionName": "wrench_symbol"
           },
           {
+            "Type": "FlexButton",
+            "Name": "flexButton2_1",
+            "Y": 168,
+            "Width": 130,
+            "Height": 72,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 130,
+                "Height": 72,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Green": 102,
+                  "Blue": 153
+                },
+                "ColorPressed": {
+                  "Green": 153,
+                  "Blue": 204
+                },
+                "ColorBorderReleased": {
+                  "Green": 51,
+                  "Blue": 102
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 102,
+                  "Blue": 153
+                }
+              }
+            ]
+          },
+          {
             "Type": "TextArea",
             "Name": "textArea1",
-            "X": 16,
-            "Y": 87,
-            "Width": 105,
-            "Height": 25,
-            "TextId": "__SingleUse_0UKW",
+            "X": 193,
+            "Y": 192,
+            "Width": 119,
+            "Height": 24,
+            "TextId": "__SingleUse_IXPG",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
               "Green": 255,
               "Blue": 255
             },
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 6
-            }
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea2",
+            "X": 38,
+            "Y": 192,
+            "Width": 55,
+            "Height": 24,
+            "TextId": "__SingleUse_529V",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "Interaction1",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "flexButton1"
-            },
-            "Action": {
-              "Type": "ActionHide",
-              "ActionComponent": "brewing_data1"
-            }
-          },
-          {
-            "InteractionName": "Interaction2",
+            "InteractionName": "startStopWatch",
             "Trigger": {
               "Type": "TriggerClicked",
               "TriggerComponent": "flexButton2"
             },
             "Action": {
-              "Type": "ActionShow",
-              "ActionComponent": "brewing_data1"
+              "Type": "ActionCustom",
+              "FunctionName": "startStopWatch"
+            }
+          },
+          {
+            "InteractionName": "resetStopWatch",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "flexButton2_1"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "resetStopWatch"
             }
           }
         ]
@@ -151,13 +164,13 @@
     "CustomContainerDefinitions": [
       {
         "Name": "brewing_data",
-        "Width": 105,
+        "Width": 129,
         "Height": 72,
         "Components": [
           {
             "Type": "TextArea",
             "Name": "temperature",
-            "Width": 97,
+            "Width": 120,
             "Height": 24,
             "TextId": "temp_unit",
             "TextRotation": "0",
@@ -176,7 +189,7 @@
             "Type": "TextArea",
             "Name": "pressure",
             "Y": 48,
-            "Width": 105,
+            "Width": 129,
             "Height": 24,
             "TextId": "pressure_unit",
             "TextRotation": "0",
@@ -195,7 +208,7 @@
             "Type": "TextArea",
             "Name": "timer",
             "Y": 24,
-            "Width": 105,
+            "Width": 129,
             "Height": 24,
             "TextId": "timer_unit",
             "TextRotation": "0",
